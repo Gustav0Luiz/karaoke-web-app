@@ -3,6 +3,11 @@
 
 This project allows you to transform YouTube videos into karaoke tracks by removing the voice from the audio and keeping only the instrumental. The project consists of a Node.js backend and a React frontend.
 
+## Demo
+
+![gif_preview](https://github.com/user-attachments/assets/4bac30d6-d4ae-46b6-a9c1-f8124fda6b04)
+
+
 ## Prerequisites
 
 Before getting started, you will need to have the following installed on your machine:
