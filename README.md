@@ -1,121 +1,87 @@
 
-# Projeto de Karaokê
+# Karaoke Project
 
-Este projeto permite que você transforme vídeos do YouTube em faixas de karaokê, removendo a voz do áudio e mantendo apenas o instrumental. O projeto consiste em um backend Node.js e um frontend React.
+This project allows you to transform YouTube videos into karaoke tracks by removing the voice from the audio and keeping only the instrumental. The project consists of a Node.js backend and a React frontend.
 
-## Pré-requisitos
+## Prerequisites
 
-Antes de começar, você precisará ter o seguinte instalado na sua máquina:
+Before getting started, you will need to have the following installed on your machine:
 
-- **Node.js** (versão 12 ou superior)
-- **Python** (versão 3.6 ou superior)
-- **FFmpeg** (para processamento de áudio)
-- **Git** (opcional, mas recomendado)
+- **Node.js** (version 12 or higher)
+- **Python** (version 3.6 or higher)
+- **FFmpeg** (for audio processing)
+- **Git** (optional, but recommended)
 
-### 1. Instalação do FFmpeg
+### 1. FFmpeg Installation
 
-Para instalar o FFmpeg, siga as etapas abaixo:
+To install FFmpeg, follow the steps below:
 
 #### Windows:
 
-1. Faça o download da versão **Essentials** do FFmpeg: [FFmpeg Download](https://www.gyan.dev/ffmpeg/builds/)
-2. Extraia o arquivo ZIP em um diretório de sua preferência.
-3. Adicione o caminho do binário do FFmpeg (`ffmpeg.exe`) à variável de ambiente `PATH` do sistema.
+1. Download the **Essentials** version of FFmpeg: [FFmpeg Download](https://www.gyan.dev/ffmpeg/builds/)
+2. Extract the ZIP file to a directory of your choice.
+3. Add the path of the FFmpeg binary (`ffmpeg.exe`) to the system `PATH` environment variable.
 
 #### Linux/Mac:
 
-Você pode instalar o FFmpeg via o gerenciador de pacotes do seu sistema:
+You can install FFmpeg via your system's package manager:
 
 ```bash
-# Para Ubuntu/Debian
+# For Ubuntu/Debian
 sudo apt update
 sudo apt install ffmpeg
 
-# Para MacOS (via Homebrew)
+# For Mac (via Homebrew)
 brew install ffmpeg
 ```
 
-### 2. Clonando o Repositório
+### 2. Project Setup
 
-Para clonar o projeto, execute o seguinte comando:
+To set up the project on your machine, follow these steps:
+
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/seu-usuario/karaoke-web-app.git
-cd karaoke-web-app
+git clone https://github.com/yourusername/karaoke-project.git
+cd karaoke-project
 ```
 
-### 3. Configuração do Backend
-
-#### Instalando as Dependências
-
-Navegue até a pasta do backend e instale as dependências necessárias:
+2. Install the dependencies:
 
 ```bash
-cd BackEnd
 npm install
+pip install -r requirements.txt
 ```
 
-#### Configurando o Arquivo `.env`
+3. Set up environment variables:
 
-Crie um arquivo `.env` no diretório `BackEnd`. Este arquivo conterá as variáveis de ambiente do projeto. Exemplo de configuração:
-
-```env
-# Caminho do diretório de backend
-BACKEND_DIR=/path/to/your/backend/directory
-
-# Porta onde o servidor será executado
-PORT=8000
-```
-
-> **Nota**: Mude o caminho `BACKEND_DIR` de acordo com o local onde você armazenou o projeto na sua máquina.
-
-### 4. Configuração do Frontend
-
-Navegue até a pasta do frontend e instale as dependências:
+Create a `.env` file at the project root and configure the following variables:
 
 ```bash
-cd ../FrontEnd
-npm install
+NODE_ENV=development
+PORT=5000
 ```
 
-### 5. Executando o Projeto
+### 3. Running the Project
 
-#### Iniciando o Backend
-
-Navegue até a pasta do backend e inicie o servidor:
+To start the backend server, run:
 
 ```bash
-cd BackEnd
-node server.js
+npm run server
 ```
 
-#### Iniciando o Frontend
-
-Em outro terminal, navegue até a pasta do frontend e inicie o servidor de desenvolvimento:
+To start the frontend server, run:
 
 ```bash
-cd ../FrontEnd
 npm start
 ```
 
-O frontend será executado em `http://localhost:5173`, enquanto o backend estará rodando em `http://localhost:8000`.
+Access the project at `http://localhost:3000`.
 
-### 6. Como Usar
+### 4. Audio Separation and Karaoke Generation
 
-1. No frontend, cole o URL de um vídeo do YouTube que contenha música.
-2. Clique em "Iniciar Karaokê".
-3. O backend fará o download do áudio, removerá a voz e criará uma faixa de karaokê.
-4. Quando o processo for concluído, o player de áudio será exibido com a faixa "no vocals".
+The backend uses **Demucs** to separate the audio into different stems (vocals, drums, bass, etc.). The instrumental stem is used to generate the karaoke track. The entire process is managed by the backend.
 
-### 7. Exclusão de Arquivos Temporários
+### 5. Contributing
 
-Os arquivos temporários gerados durante o processamento (vocals, no_vocals e yt_temp) serão automaticamente excluídos do diretório backend após serem enviados ao frontend.
-
----
-
-## Observações
-
-- Certifique-se de configurar o FFmpeg corretamente no `PATH` do sistema.
-- O projeto foi desenvolvido utilizando o Node.js e o Python para processamento de áudio via Demucs.
-- Caso precise modificar o diretório onde os arquivos temporários são armazenados, você pode ajustar o valor da variável `BACKEND_DIR` no arquivo `.env`.
-
+If you'd like to contribute to the project, feel free to submit a pull request. Please follow the code of conduct and ensure all tests pass before submitting.

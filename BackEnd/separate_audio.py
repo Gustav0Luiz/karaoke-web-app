@@ -39,17 +39,26 @@ try:
             file_path = os.path.join(temp_htdemucs_dir, file_name)
             destination_path = os.path.join(final_output_dir, file_name)
 
-            if os.path.exists(destination_path):
-                os.remove(destination_path)
-                print(f"Arquivo existente {file_name} removido do diretório destino.")
-
+            # Não vamos mais excluir arquivos existentes, apenas mover os arquivos gerados
             shutil.move(file_path, final_output_dir)
             print(f"Movido: {file_name} para {final_output_dir}")
 
+        # Se quiser manter a pasta temporária, remova a linha abaixo
         shutil.rmtree(output_dir)
-        print(f"Pasta temporária {output_dir} removida com sucesso.")
+        print(f"Pasta temporária {output_dir} mantida.")
+        
     else:
         print(f"O diretório temporário {temp_htdemucs_dir} não foi encontrado.")
+
+    # 5. Chamar o segundo script "make_video.py" para gerar o vídeo
+    print("Iniciando o script make_video.py para gerar o vídeo...")
+    second_script_path = os.path.join(backend_dir, 'make_video.py')
+    
+    try:
+        subprocess.run(['python', second_script_path], check=True)
+        print("Vídeo gerado com sucesso.")
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao executar make_video.py: {e}")
 
 except subprocess.CalledProcessError as e:
     print(f"Erro no processo de separação: {e}")

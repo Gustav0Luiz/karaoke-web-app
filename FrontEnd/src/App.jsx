@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 import { FaSearch } from 'react-icons/fa'; // Ícone de lupa
 import VideoPage from './VideoPage';
 
+
+
+
 function HomePage() {
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
@@ -39,7 +42,7 @@ function HomePage() {
     <div className="min-h-screen flex flex-col font-jetbrains">
       {/* Logo no canto superior esquerdo */}
       <header className="p-4 flex items-center">
-        <img src="/mic_icon.png" alt="Microphone" className="h-8 w-8 mr-2" />
+        <img src="/icone.png" alt="Microphone" className="h-8 w-8 mr-2" />
         <h1 className="text-2xl font-bold">FeudoKe</h1>
       </header>
 

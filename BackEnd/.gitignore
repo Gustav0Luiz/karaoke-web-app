@@ -8,7 +8,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+/testes/
 .env
+make_video.py
+video_assemble.py
 teste.py
 dist
 dist-ssr
