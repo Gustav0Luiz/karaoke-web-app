@@ -47,8 +47,8 @@ To set up the project on your machine, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Gustav0Luiz/karaoke-project.git
-cd karaoke-project
+git clone https://github.com/Gustav0Luiz/karaoke-web-app.git
+cd karaoke-web-app
 ```
 
 2. Install the dependencies:
